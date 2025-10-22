@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
+
 
 public class Biblioteka {
 //galvena klase  Biblioteka 
@@ -42,12 +47,27 @@ public class Biblioteka {
 					break;
 				}
 				break;
+				case 1:
+					izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies rakstu darba veidu",
+						"Izvēlne", JOptionPane.QUESTION_MESSAGE, null
+						,rakstuDarbiVeidi, rakstuDarbiVeidi[0]);
+					if (izvele == null)break;
+					switch(izvele) {
+					case "Zinātniskais rakstu darbs":
+						rakstuDarbi.add(Metodes.izveidotZinatniskoRakstuDarbu());
+						JOptionPane.showMessageDialog(null, "Veiksmīgi izveidots zinātniskais rakstu darbs",
+								"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+						break;
+						
+						
+					}
+					break;
+				
+					
+					
 				
 					}
 		
-				
-										
-			
 		}while(izvele != null && !izvele.equals("Aizvērt programmu"));
 		JOptionPane.showMessageDialog(null, "Paldies, ka izmantojāt bibliotēkas programmu!",
 				"Paziņojums", JOptionPane.INFORMATION_MESSAGE);

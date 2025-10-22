@@ -47,4 +47,12 @@ public class Metodes {
 		int ieteicamaisVecums = Metodes.skaitlaParbaude("Ievadi grāmatas ieteicamo vecumu:",4,18,"7");
 		return new BernuGramata(autors, nosaukums, lappuses, cena, ilustrators, ieteicamaisVecums);
 	}
+		public static RakstuDarbs izveidotZinatniskoRakstuDarbu() {
+		String autors = Metodes.virknesParbaude("Ievadi rakstu darba autoru:", "Jānis Zinātnieks");
+		String nosaukums = Metodes.virknesParbaude("Ievadi rakstu darba nosaukumu:","Par dabu");
+		int lappuses = Metodes.skaitlaParbaude("Ievadi rakstu darba lappušu skaitu:",5,30,"12");
+		double cena = Metodes.skaitlaParbaude("Ievadi rakstu darba cenu EUR:",5,20,"10");
+		String joma = Metodes.virknesParbaude("Ievadi rakstu darba zinātnisko jomu:", "Bioloģija");
+		return new RakstuDarbs (autors, nosaukums, lappuses, cena);
+	}	
 }
