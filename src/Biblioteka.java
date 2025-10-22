@@ -62,10 +62,51 @@ public class Biblioteka {
 						
 					}
 					break;
-				
+				case 2:
+					if(gramatas.size()>0) {
+						String str = "Gramatu saraksts: "+gramatas.size()+
+								"\n_________________________________\n";
+						for(int i=0; i<gramatas.size(); i++) {
+							str += ((i+1)+". grāmata:\n"+
+									((BernuGramata)gramatas.get(i)).izvadit()+
+									"\n_________________________________\n");
+						}
+						
+						JTextArea ta = new JTextArea (str, 10, 40);
+						ta.setEditable(false);
+						JScrollPane sp = new JScrollPane(ta);
+						sp.setVerticalScrollBarPolicy(
+								ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+						JOptionPane.showMessageDialog(ta, sp, "Gramatas",
+								JOptionPane.PLAIN_MESSAGE);
+					}else {
+						JOptionPane.showMessageDialog(null, "Nav nevienas grāmtas bibliotēka",
+								"Kļūda", JOptionPane.ERROR_MESSAGE);
+						break;
+					}
 					
-					
-				
+				case 3 :
+					if(rakstuDarbi.size()>0) {
+						String str = "Rakstu darbu saraksts: "+rakstuDarbi.size()+
+								"\n_________________________________\n";
+						for(int i=0; i<rakstuDarbi.size(); i++) {
+							str += ((i+1)+". rakstu darbs:\n"+
+									((RakstuDarbs)rakstuDarbi.get(i)).izvadit()+
+									"\n_________________________________\n");
+						}
+						
+						JTextArea ta = new JTextArea (str, 10, 40);
+						ta.setEditable(false);
+						JScrollPane sp = new JScrollPane(ta);
+						sp.setVerticalScrollBarPolicy(
+								ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+						JOptionPane.showMessageDialog(ta, sp, "Rakstu darbi",
+								JOptionPane.PLAIN_MESSAGE);
+						}else {
+						JOptionPane.showMessageDialog(null, "Nav neviena rakstu darba bibliotēka",
+								"Kļūda", JOptionPane.ERROR_MESSAGE);
+						break;
+					}
 					}
 		
 		}while(izvele != null && !izvele.equals("Aizvērt programmu"));
