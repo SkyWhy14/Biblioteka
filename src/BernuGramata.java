@@ -1,14 +1,13 @@
-//apakskalse  BernuGramata 
+//apakskalse  Ber7\nuGramata 
 public class BernuGramata  extends RakstuDarbs{
 	
 	private String ilustrators;
 	private int ieteicamaisVecums;
 	
 	
-	public BernuGramata(String autors, String nosaukums,
-			int lappuses, double cena,
+	public BernuGramata(String autors, String nosaukums, int lappuses, double cena,
 			String ilustrators, int ieteicamaisVecums) {
-		super(autors, nosaukums, lappuses, cena);
+		super(autors, nosaukums, lappuses, cena, ilustrators);
 		this.ilustrators = ilustrators;
 		this.ieteicamaisVecums = ieteicamaisVecums;
 	}
@@ -25,9 +24,12 @@ public class BernuGramata  extends RakstuDarbs{
 	
 	@Override
 	public String izvadit() {
-		return super.izvadit()+
+		return "Bērnu grāmatas autors: "+getAutors()+
+				"\nBērnu grāmatas nosaukums: "+getNosaukums()+
+				"\nBērnu grāmatas lappušu skaits: "+getLappuses()+
+				"\nBērnu grāmatas cena: "+getCena()+" EUR"+
 				"\nIlustrators: "+getIlustrators()+
-				"\nIeteicamais vecums: "+getIeteicamaisVecums()+" gadi";
+				"\nIeteicamais vecums: "+getIeteicamaisVecums()+" gadiem";
 	}
  		
 }

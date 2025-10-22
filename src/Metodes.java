@@ -37,22 +37,33 @@ public class Metodes {
 			}
 		}
 }
-	
-		public static BernuGramata izveidotBernuGramatu() {
-		String autors = Metodes.virknesParbaude("Ievadi grāmatas autoru:", "Maija Pupolina");
-		String nosaukums = Metodes.virknesParbaude("Ievadi grāmatas nosaukumu:","Annas piedzīvojumi");
-		int lappuses = Metodes.skaitlaParbaude("Ievadi grāmatas lappušu skaitu:",10,50,"23");
-		double cena = Metodes.skaitlaParbaude("Ievadi grāmatas cenu EUR:",2,10,"5");
-		String ilustrators = Metodes.virknesParbaude("Ievadi grāmatas ilustratoru:", "Jānis Zīmētājs");
-		int ieteicamaisVecums = Metodes.skaitlaParbaude("Ievadi grāmatas ieteicamo vecumu:",4,18,"7");
+	public static BernuGramata izveidotBernuGramatu() {
+		String autors = virknesParbaude("Ievadi grāmatas autoru:", "Anna Bērziņa");
+		if(autors == null) return null;
+		String nosaukums = virknesParbaude("Ievadi grāmatas nosaukumu:", "Pasaka par draudzību");
+		if(nosaukums == null) return null;
+		int lappuses = skaitlaParbaude("Ievadi grāmatas lappušu skaitu:", 1, 10000, "23");
+		if(lappuses == -1) return null;
+		double cena = skaitlaParbaude("Ievadi grāmatas cenu EUR:", 0.01, 1000, "23");
+		if(cena == -1) return null;
+		String ilustrators = virknesParbaude("Ievadi grāmatas ilustratoru:", "Maija Kalniņa");
+		if(ilustrators == null) return null;
+		int ieteicamaisVecums = skaitlaParbaude("Ievadi ieteicamo vecumu gadiem:", 0, 18, "3");
+		if(ieteicamaisVecums == -1) return null;
+		
 		return new BernuGramata(autors, nosaukums, lappuses, cena, ilustrators, ieteicamaisVecums);
 	}
-		public static RakstuDarbs izveidotZinatniskoRakstuDarbu() {
-		String autors = Metodes.virknesParbaude("Ievadi rakstu darba autoru:", "Jānis Zinātnieks");
-		String nosaukums = Metodes.virknesParbaude("Ievadi rakstu darba nosaukumu:","Par dabu");
-		int lappuses = Metodes.skaitlaParbaude("Ievadi rakstu darba lappušu skaitu:",5,30,"12");
-		double cena = Metodes.skaitlaParbaude("Ievadi rakstu darba cenu EUR:",5,20,"10");
-		String joma = Metodes.virknesParbaude("Ievadi rakstu darba zinātnisko jomu:", "Bioloģija");
-		return new RakstuDarbs (autors, nosaukums, lappuses, cena);
-	}	
-}
+	public static RakstuDarbs izveidotZinatniskoRakstuDarbu() {
+		String autors = virknesParbaude("Ievadi rakstu darba autoru:", "Kārlis Ozols");
+		if(autors == null) return null;
+		String nosaukums = virknesParbaude("Ievadi rakstu darba nosaukumu:", "Pētniecība par klimata pārmaiņām");
+		if(nosaukums == null) return null;
+		int lappuses = skaitlaParbaude("Ievadi rakstu darba lappušu skaitu:", 1, 10000, "50");
+		if(lappuses == -1) return null;
+		double cena = skaitlaParbaude("Ievadi rakstu darba cenu EUR:", 0.01, 1000, "");
+		if(cena == -1) return null;
+		
+		return new RakstuDarbs(autors, nosaukums, lappuses, cena, "");
+	
+	}
+	}

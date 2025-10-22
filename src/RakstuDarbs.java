@@ -5,9 +5,10 @@ public class RakstuDarbs {
 	private String nosaukums;
 	private int lappuses;
 	private double cena;
+	private String ilustrators;
 	
 	//konstruktors
-	public RakstuDarbs(String autors, String nosaukums, int lappuses, double cena) {
+	public RakstuDarbs(String autors, String nosaukums, int lappuses, double cena, String ilustrators) {
 		this.autors = autors;
 		this.nosaukums = nosaukums;
 		this.lappuses = lappuses;
@@ -30,10 +31,14 @@ public class RakstuDarbs {
 	public double getCena() {
 		return cena;
 	}
+	public String ilustrators() {
+		return ilustrators;
+	}
 	public String izvadit() {
 		return "Rakstu darba autors: "+getAutors()+
 				"\nRakstu darba nosaukums: "+getNosaukums()+
 				"\nRakstu darba lappušu skaits: "+getLappuses()+
-				"\nRakstu darba cena: "+getCena()+" EUR";
+				"\nRakstu darba cena: "+getCena()+" EUR"+
+				"\nIlustrators: "+ilustrators;
 	}
 }
