@@ -7,14 +7,11 @@
 - [X] Izveidotas nepieciešamās klases
 - [X] Izveidota darbību izvelne
 - [X] Izveidota izvelnes opcija "Jauna grāmata"
-- [ ] Izveidota izvelnes opcija "Jauns rakstu darbs"
-- [X] Izveidota izvelnes opcija "Grāmatu saraksts"
-- [ ] Izveidota izvelnes opcija "Rakstu darbu saraksts"
-- [ ] Izveidota izvelnes opcija "Dzēst grāmatu"
-- [ ] Izveidota izvelnes opcija "Dzēst rakstu darbu"
+- [X] Izveidota izvelnes opcija "Rakstu darbu saraksts"
+- [X] Izveidota izvelnes opcija "Dzēst grāmatu"
 - [ ] Izveidota izvelnes opcija "Izsaukt metodi"
-- [ ] Izveidotas strādājošas izvelnes opcijas
+- [X] Izveidotas strādājošas izvelnes opcijas
 - [ ] Izveidotas metodes metožu izsaukšanai
-- [ ] Izveidota strādājoša BērnuGrāmatas klase
-- [ ] Izveidota strādājoša RakstuDarbs klase
+- [X] Izveidota strādājoša BērnuGrāmatas klase
+- [X] Izveidota strādājoša RakstuDarbs klase
 - [ ] Izveidota strādājoša Bibliotēka klase
