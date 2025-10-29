@@ -102,7 +102,7 @@ public class Biblioteka {
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					break;
-					//var dzest bernu gramatu no saraksta un ari rakstu darbu no saraksta ar dropdown menu
+			
 					case 2: 
 						if(gramatas.size()==0 && rakstuDarbi.size()==0) {
 							JOptionPane.showMessageDialog(null, "Bibliotēka ir tukša, nav ko dzēst",
@@ -141,10 +141,11 @@ public class Biblioteka {
 					                "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
 					        break;
 					    }
-
+					    //pievieno kaut ko metodes izsaukšanai
 					    String[] metodes = {
 					        "Audio grāmatas atskaņošana",
 					        "Pārdēvēt grāmatu vai rakstu darbu",
+					        "Sadedzināt grāmatu skaitu bibliotēkā",
 					        "Atpakaļ"
 					    };
 
@@ -167,6 +168,17 @@ public class Biblioteka {
 
 					            case "Pārdēvēt grāmatu vai rakstu darbu":
 					                Metodes.pardevetGramatuVaiRakstuDarbu(gramatas, rakstuDarbi);
+					                break;
+					            case "Sadedzināt grāmatu skaitu bibliotēkā":
+					         int kopSkaits = gramatas.size() + rakstuDarbi.size();
+					         JOptionPane.showMessageDialog(null, "Bibliotēkā kopā ir " + kopSkaits + " grāmatas un rakstu darbi.",
+					                 "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+					         Metodes.sadedzinatGramatuRakstuDarbuSkaitu(gramatas, rakstuDarbi);
+					         
+					         	
+					            						                
+					                break;
+					            case "Atpakaļ":
 					                break;
 
 					          
