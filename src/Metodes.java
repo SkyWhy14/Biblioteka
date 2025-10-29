@@ -1,8 +1,17 @@
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
-public class Metodes {
+public class Metodes  extends Biblioteka{
 	public static String virknesParbaude(String zinojums, String noklusejums) {
 		String virkne;
 		do {
@@ -66,4 +75,53 @@ public class Metodes {
 		return new RakstuDarbs(autors, nosaukums, lappuses, cena, "");
 	
 	}
+	public static int gramatasIzvele(ArrayList<Object> gramatas) {
+		String[] gramatuSar = new String[gramatas.size()];
+		for(int i = 0; i < gramatas.size(); i++) {
+			gramatuSar[i] = ((BernuGramata)gramatas.get(i)).getNosaukums();
+		}
+		String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies grāmatu dzēšanai",
+				"Izvēlne", JOptionPane.QUESTION_MESSAGE, null
+				,gramatuSar, gramatuSar[0]);
+		if(izvele == null) return -1;
+		return java.util.Arrays.asList(gramatuSar).indexOf(izvele);
 	}
+	
+	
+	
+  public static void pardevetGramatuVaiRakstuDarbu(ArrayList<Object> gramatas, ArrayList<Object> rakstuDarbi) {
+	  ArrayList<String> pardevetieObjekti = new ArrayList<>();
+	  		for(int i=0; i<gramatas.size(); i++) {
+	  			pardevetieObjekti.add("Bērnu grāmata: "+((BernuGramata)gramatas.get(i)).getNosaukums());
+	  		}
+	  		for(int i=0; i<rakstuDarbi.size(); i++) {
+	  			pardevetieObjekti.add("Zinātniskais rakstu darbs: "+((RakstuDarbs)rakstuDarbi.get(i)).getNosaukums());
+	  		}
+	  		String[] pardevetieObjektiArray = pardevetieObjekti.toArray(new String[0]);
+	  		String pardevetaisObjekts = (String) JOptionPane.showInputDialog(null, "Izvēlies grāmatu vai rakstu darbu, ko pārdēvēt",
+	  				"Pārdēvēt grāmatu/rakstu darbu", JOptionPane.QUESTION_MESSAGE, null,
+	  				pardevetieObjektiArray, pardevetieObjektiArray[0]);
+	  		if(pardevetaisObjekts != null) {
+	  			int index = pardevetieObjekti.indexOf(pardevetaisObjekts);
+	  			String jaunsNosaukums = virknesParbaude("Ievadi jauno nosaukumu:", "Jaunais nosaukums");
+	  			if(jaunsNosaukums != null) {
+	  				if(pardevetaisObjekts.startsWith("Bērnu grāmata: ")) {
+	  					((BernuGramata)gramatas.get(index)).setNosaukums(jaunsNosaukums);
+	  				}else {
+	  					((RakstuDarbs)rakstuDarbi.get(index - gramatas.size())).setNosaukums(jaunsNosaukums);
+	  				}
+	  				JOptionPane.showMessageDialog(null, "Veiksmīgi pārdēvēts: "+pardevetaisObjekts,
+	  						"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+	  			}else {
+	  				JOptionPane.showMessageDialog(null, "Pārdēvēšana atcelta",
+	  						"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+	  			}
+	  			}else {
+	  				JOptionPane.showMessageDialog(null, "Pārdēvēšana atcelta",
+	  						"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+	  			
+	  		}
+  }
+	
+	
+}

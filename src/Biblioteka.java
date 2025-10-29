@@ -1,5 +1,9 @@
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -16,7 +20,9 @@ public class Biblioteka {
 	//programma jegpilnigi nodrosina virsklases un apaksklasu stukturu
 
 	
-	public static void main(String[] args) {
+	
+
+	public static void main(String[] args) throws MalformedURLException, UnsupportedAudioFileException, IOException, LineUnavailableException{
 		String izvele;
 		
 		String[] darbibas = {"Jauna grāmata", 
@@ -95,6 +101,7 @@ public class Biblioteka {
 							JOptionPane.showMessageDialog(null, scrollPane, "Grāmatu un rakstu darbu saraksts",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
+					break;
 					//var dzest bernu gramatu no saraksta un ari rakstu darbu no saraksta ar dropdown menu
 					case 2: 
 						if(gramatas.size()==0 && rakstuDarbi.size()==0) {
@@ -127,9 +134,48 @@ public class Biblioteka {
 								}
 								
 							}
-					
-					case 3 :
-						break;
+					//izsaukt metodi
+					case 3:
+					    if (gramatas.size() == 0 && rakstuDarbi.size() == 0) {
+					        JOptionPane.showMessageDialog(null, "Bibliotēkā nav grāmatu un rakstu darbu, lai izsauktu metodes",
+					                "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+					        break;
+					    }
+
+					    String[] metodes = {
+					        "Audio grāmatas atskaņošana",
+					        "Pārdēvēt grāmatu vai rakstu darbu",
+					        "Atpakaļ"
+					    };
+
+					    while (true) {
+					        String metodeIzvele = (String) JOptionPane.showInputDialog(null, "Izvēlies metodi",
+					                "Metodes izvēlne", JOptionPane.QUESTION_MESSAGE, null,
+					                metodes, metodes[0]);
+
+					        if (metodeIzvele == null || metodeIzvele.equals("Atpakaļ")) {
+					            break;
+					        }
+
+					        switch (metodeIzvele) {
+					            case "Audio grāmatas atskaņošana":
+					                int gramatasID = Metodes.gramatasIzvele(gramatas);
+					                if (gramatasID != -1) {
+					                    ((BernuGramata) gramatas.get(gramatasID)).atskanotAudioGramatu();
+					                }
+					                break;
+
+					            case "Pārdēvēt grāmatu vai rakstu darbu":
+					                Metodes.pardevetGramatuVaiRakstuDarbu(gramatas, rakstuDarbi);
+					                break;
+
+					          
+					            	
+					                
+					                
+					        }
+					    }
+					    break;
 						
 					
 					
