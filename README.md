@@ -12,6 +12,7 @@
 - [X] Izveidota izvelnes opcija "Izsaukt metodi"
 - [X] Metode pārdēvēt izvēlēto grāmatu
 - [X] Atskaņot audio grāmatu
+- [X] Sadedzināt visas grāmatas kas ir bibliotēkā
 - [X] Izveidotas strādājošas izvelnes opcijas
 - [X] Izveidotas metodes metožu izsaukšanai
 - [X] Izveidota strādājoša BērnuGrāmatas klase
