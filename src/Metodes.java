@@ -1,15 +1,9 @@
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 
 public class Metodes  extends Biblioteka{
 	public static String virknesParbaude(String zinojums, String noklusejums) {
@@ -127,13 +121,53 @@ public class Metodes  extends Biblioteka{
 	public static void sadedzinatGramatuRakstuDarbuSkaitu(ArrayList<Object> gramatas, ArrayList<Object> rakstuDarbi) {
 		int kopSkaits = gramatas.size() + rakstuDarbi.size();
 		JOptionPane.showMessageDialog(null, "Bibliotēkā ir kopā "+kopSkaits+" grāmatas  kas tiks sadedzināti.",
+				
 				"Sadedzināt grāmatu/rakstu darbu skaitu", JOptionPane.INFORMATION_MESSAGE);
+		
 		gramatas.clear();
 		rakstuDarbi.clear();
 		JOptionPane.showMessageDialog(null, "Visi grāmatu un rakstu darbu skaits bibliotēkā ir sadedzināts.",
 				"Sadedzināšana pabeigta", JOptionPane.INFORMATION_MESSAGE);
+	
 	}
- 
-	
-	
+	//paradi info par gramatu vai rakstu darbu un parada gif ar darbinieku
+	public static void pajauttDarbiniekamParGramatuVaiRakstuDarbu(ArrayList<Object> gramatas, ArrayList<Object> rakstuDarbi) {
+	    
+	    String[] visiObjekti = new String[gramatas.size() + rakstuDarbi.size()];
+	    for (int i = 0; i < gramatas.size(); i++) {
+	        visiObjekti[i] = "Bērnu grāmata: " + ((BernuGramata) gramatas.get(i)).getNosaukums();
+	    }
+	    for (int i = 0; i < rakstuDarbi.size(); i++) {
+	        visiObjekti[i + gramatas.size()] = "Zinātniskais rakstu darbs: " + ((RakstuDarbs) rakstuDarbi.get(i)).getNosaukums();
+	    }
+
+	   
+	    String izvele = (String) JOptionPane.showInputDialog(
+	            null,
+	            "Izvēlies grāmatu vai rakstu darbu, par kuru pajautāt darbiniekam",
+	            "Izvēlne",
+	            JOptionPane.QUESTION_MESSAGE,
+	            null,
+	            visiObjekti,
+	            visiObjekti.length > 0 ? visiObjekti[0] : null);
+
+	    if (izvele == null) return;
+
+	    // Atrod izvēlētā objekta indeksu
+	    int index = java.util.Arrays.asList(visiObjekti).indexOf(izvele);
+	    String info;
+
+	    // Nosaka, vai izvēlēts grāmatas vai rakstu darbs
+	    if (izvele.startsWith("Bērnu grāmata: ")) {
+	        info = ((BernuGramata) gramatas.get(index)).izvadit();
+	    } else {
+	        info = ((RakstuDarbs) rakstuDarbi.get(index - gramatas.size())).izvadit();
+	    }
+
+	   
+	}
+	public static void paradiDarbiniekaGif() {
+		ImageIcon darbinieksGif = new ImageIcon(".//images//darbinieks.gif");
+		JOptionPane.showMessageDialog(null, "", "Darbinieks palīdzības centrs", JOptionPane.INFORMATION_MESSAGE, darbinieksGif);
+	}
 }

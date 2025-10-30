@@ -40,7 +40,7 @@ public class BernuGramata extends RakstuDarbs {
 
 	public void atskanotAudioGramatu()  throws MalformedURLException, UnsupportedAudioFileException, IOException,
 	LineUnavailableException {
-		
+	
 		File f = new File(".//audio//"+"gramata.wav");
 		AudioInputStream ais = AudioSystem.getAudioInputStream(f.toURI().toURL());
 		Clip c = AudioSystem.getClip();

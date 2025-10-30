@@ -146,6 +146,7 @@ public class Biblioteka {
 					        "Audio grāmatas atskaņošana",
 					        "Pārdēvēt grāmatu vai rakstu darbu",
 					        "Sadedzināt grāmatu skaitu bibliotēkā",
+					        "Pajautāt darbiniekam par grāmatu ",
 					        "Atpakaļ"
 					    };
 
@@ -178,6 +179,12 @@ public class Biblioteka {
 					         	
 					            						                
 					                break;
+					                //vajag lai ir bilde ar darbinieku un tekstu un ir iespeja izvleties gramatu vai rakstu darbu par kuru jautat
+					            case "Pajautāt darbiniekam par grāmatu ":
+					            	Metodes.pajauttDarbiniekamParGramatuVaiRakstuDarbu(gramatas, rakstuDarbi);
+					            						               
+					                break;
+					            	
 					            case "Atpakaļ":
 					                break;
 
