@@ -13,6 +13,7 @@
 - [X] Metode pārdēvēt izvēlēto grāmatu
 - [X] Atskaņot audio grāmatu
 - [X] Sadedzināt visas grāmatas kas ir bibliotēkā
+- [x] Pajautāt bibliotēkas darbiniekam par grāmatu
 - [X] Izveidotas strādājošas izvelnes opcijas
 - [X] Izveidotas metodes metožu izsaukšanai
 - [X] Izveidota strādājoša BērnuGrāmatas klase
