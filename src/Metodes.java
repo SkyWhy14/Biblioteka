@@ -63,7 +63,7 @@ public class Metodes  extends Biblioteka{
 		if(nosaukums == null) return null;
 		int lappuses = skaitlaParbaude("Ievadi rakstu darba lappušu skaitu:", 1, 10000, "50");
 		if(lappuses == -1) return null;
-		double cena = skaitlaParbaude("Ievadi rakstu darba cenu EUR:", 0.01, 1000, "");
+		double cena = skaitlaParbaude("Ievadi rakstu darba cenu EUR:", 0.01, 1000, "23");
 		if(cena == -1) return null;
 		
 		return new RakstuDarbs(autors, nosaukums, lappuses, cena, "");
@@ -130,7 +130,7 @@ public class Metodes  extends Biblioteka{
 				"Sadedzināšana pabeigta", JOptionPane.INFORMATION_MESSAGE);
 	
 	}
-	//paradi info par gramatu vai rakstu darbu un parada gif ar darbinieku
+	//parada info par gramatu vai rakstu darbu un parada gif ar darbinieku
 	public static void pajauttDarbiniekamParGramatuVaiRakstuDarbu(ArrayList<Object> gramatas, ArrayList<Object> rakstuDarbi) {
 	    
 	    String[] visiObjekti = new String[gramatas.size() + rakstuDarbi.size()];
